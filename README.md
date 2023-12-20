@@ -7,7 +7,8 @@
 ## Retos
 
 1. [🎁 ¡Primer regalo repetido!](#Primer-regalo-repetido)
-2. [🏭 Ponemos en marcha la fábrica](#Ponemos-en-marcha-la-fábrica)
+1. [🏭 Ponemos en marcha la fábrica](#Ponemos-en-marcha-la-fábrica)
+1. [😏 El elfo travieso](#El-elfo-travieso)
 
 ---
 
@@ -67,6 +68,29 @@ function manufacture(gifts, materials) {
 
   // Devolver la lista de regalos fabricados
   return manufacturedGifts;
+}
+```
+<sup>⬆️ [back to table of contents](#tips) </sup>
+
+---
+### El elfo travieso
+
+```js
+function findNaughtyStep(original, modified) {
+  // Determinar cuál de las dos cadenas es más larga
+  const longer = original.length > modified.length ? original : modified;
+
+  // Iterar a través de los caracteres de la cadena más larga
+  for (let i = 0; i < longer.length; i++) {
+    // Verificar si el carácter actual en ambas cadenas es diferente
+    if (original[i] !== modified[i]) {
+      // Si es diferente, devolver el carácter de la cadena más larga
+      return longer[i];
+    }
+  }
+
+  // Si no se encuentra ninguna diferencia, devolver una cadena vacía
+  return '';
 }
 ```
 <sup>⬆️ [back to table of contents](#tips) </sup>
