@@ -7,7 +7,7 @@
 ## Retos
 
 1. [🎁 ¡Primer regalo repetido!](#Primer-regalo-repetido)
-2. [Background Image con Overlay](#background-image-con-overlay)
+2. [🏭 Ponemos en marcha la fábrica](#Ponemos-en-marcha-la-fábrica)
 
 ---
 
@@ -31,6 +31,42 @@ function findFirstRepeated(gifts) {
   } 
   // Si no se encontraron números repetidos
   return -1;
+}
+```
+<sup>⬆️ [back to table of contents](#tips) </sup>
+
+---
+
+### Ponemos en marcha la fábrica
+
+```js
+function manufacture(gifts, materials) {
+  // Inicializar una lista para almacenar los regalos fabricados
+  const manufacturedGifts = [];
+
+  // Iterar a través de cada regalo en la lista
+  for (const gift of gifts) {
+    // Inicializar una variable para rastrear si el regalo se puede fabricar
+    let contain = true;
+
+    // Iterar a través de cada letra del regalo
+    for (const char of gift) {
+      // Verificar si la letra está presente en los materiales
+      if (!materials.includes(char)) {
+        // Si falta alguna letra, no se puede fabricar el regalo
+        contain = false;
+        // Salir del bucle interno, ya que no es necesario verificar más letras
+        break;
+      }
+    }
+
+    // Verificar si todos los caracteres del regalo están en los materiales
+    // Si es así, agregar el regalo a la lista de regalos fabricados
+    contain && manufacturedGifts.push(gift);
+  }
+
+  // Devolver la lista de regalos fabricados
+  return manufacturedGifts;
 }
 ```
 <sup>⬆️ [back to table of contents](#tips) </sup>
