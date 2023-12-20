@@ -9,6 +9,7 @@
 1. [🎁 ¡Primer regalo repetido!](#Primer-regalo-repetido)
 1. [🏭 Ponemos en marcha la fábrica](#Ponemos-en-marcha-la-fábrica)
 1. [😏 El elfo travieso](#El-elfo-travieso)
+1. [😵‍💫 Dale la vuelta a los paréntesis](#Dale-la-vuelta-a-los-paréntesis)
 
 ---
 
@@ -91,6 +92,41 @@ function findNaughtyStep(original, modified) {
 
   // Si no se encuentra ninguna diferencia, devolver una cadena vacía
   return '';
+}
+```
+<sup>⬆️ [back to table of contents](#tips) </sup>
+
+---
+### 😵‍💫 Dale la vuelta a los paréntesis
+
+```js
+function decode(message) {
+  // Inicializar una pila y una variable auxiliar (result)
+  let stack = [];
+  let result = '';
+
+  // Iterar a través de cada carácter en el mensaje
+  for (let i = 0; i < message.length; i++) {
+    // Verificar si el carácter actual es un '('
+    if (message[i] === '(') {
+      // Si es '(', agregar la cadena actual a la pila
+      stack.push(result);
+      // Reiniciar la variable result a vacio
+      result = '';
+    } else if (message[i] === ')') {
+      // Si es ')', stack.pop() => Sacamos el ultimo elemento de nuestra pila. Concatenamos lo siguiente
+      // result.split('') => Convierte nuestra cadena en un arreglo
+      // reverse() => Invierte nuestro arreglo
+      // join('') => Vuelve a convertir nuestro arreglo en una cadena
+      result = stack.pop() + result.split('').reverse().join('');
+    } else {
+      // Agregar los demas caracteres a nuestra variable auxiliar
+      result += message[i];
+    }
+  }
+
+  // Devolver la cadena resultante después de procesar todos los caracteres
+  return result;
 }
 ```
 <sup>⬆️ [back to table of contents](#tips) </sup>
